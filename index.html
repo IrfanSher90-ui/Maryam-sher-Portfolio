@@ -1,0 +1,1645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Irfan Sher | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet font-display">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+    /* Custom Reset & Variable Styling */
+:root {
+    --bg-dark: #051417;
+    --bg-gradient: linear-gradient(135deg, #051417 0%, #0a2425 50%, #06191a 100%);
+    --mint-glow: #28bea3;
+    --text-muted: #a0aec0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg-gradient);
+    color: #ffffff;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Particles Layer container */
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* Header & Navbar Custom Layout */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 6%;
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+.logo,span {
+    color: var(--mint-glow, #28bea3);
+}
+
+.nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-left: 2rem;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #ffffff;
+    border-bottom: 2px solid var(--mint-glow);
+    padding-bottom: 4px;
+}
+
+/* Hero Base Structure Container */
+.hero-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 6%;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+    min-height: 80vh;
+}
+
+/* Left Side Layout & Typography Styling */
+.content-left {
+    position: relative;
+}
+
+.main-heading {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 3.5rem;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.main-heading span {
+    color: var(--mint-glow);
+    text-shadow: 0 0 20px rgba(40, 190, 163, 0.3);
+}
+
+.sub-text {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    max-width: 520px;
+}
+
+.cta-group .btn-fill {
+    background-color: var(--mint-glow);
+    color: var(--bg-dark);
+    text-decoration: none;
+    padding: 0.9rem 2.2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    display: inline-block;
+    box-shadow: 0 0 25px rgba(40, 190, 163, 0.4);
+    transition: all 0.3s ease;
+    margin-right: 1.5rem;
+}
+
+.cta-group .btn-fill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 35px rgba(40, 190, 163, 0.6);
+}
+
+.cta-group .btn-outline {
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.9rem 2.2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.cta-group .btn-outline:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: #ffffff;
+}
+
+/* Lower Stack Section Base Icons Layout */
+.my-stack-section {
+    margin-top: 4rem;
+}
+
+.my-stack-section h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.stack-icons i {
+    font-size: 2rem;
+    margin-right: 1.8rem;
+    opacity: 0.7;
+    transition: transform 0.3s, opacity 0.3s;
+    cursor: pointer;
+}
+
+.stack-icons i:hover {
+    opacity: 1;
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 8px currentColor);
+}
+
+/* Stack Brand Specific Branding Colors */
+.text-laravel { color: #ff2d20; }
+.text-php { color: #777bb4; }
+.text-wp { color: #21759b; }
+.text-vue { color: #42b883; }
+.text-db { color: #00758f; }
+.text-docker { color: #2496ed; }
+
+/* Right Side Composition & Layout Styling */
+.content-right {
+    position: relative;
+    height: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* VS Code Layer (Backpack) */
+.code-window {
+    background: #09191c;
+    border: 1px solid rgba(40, 190, 163, 0.25);
+    border-radius: 12px;
+    width: 480px;
+    position: absolute;
+    top: 40px;
+    left: 10px;
+    z-index: 2;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+}
+
+.window-header {
+    background: #051012;
+    padding: 0.7rem 1rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.dot { width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; }
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+
+.window-header .title {
+    font-size: 0.75rem;
+    color: #4a6568;
+    margin-left: 1rem;
+}
+
+.code-body {
+    padding: 1.2rem;
+    font-family: monospace;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #8bb2b6;
+}
+
+/* Core Syntax Custom Colors matching standard themes */
+.p-keyword { color: #e95683; }
+.p-tag { color: #4ca3ff; }
+.p-class { color: #28bea3; }
+.p-func { color: #ffcd3a; }
+.p-var { color: #e2e8f0; }
+
+/* The Live Badge element floating block */
+.live-badge {
+    position: absolute;
+    top: 120px;
+    right: 20px;
+    background: rgba(9, 25, 28, 0.85);
+    border: 1px solid var(--mint-glow);
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 15px rgba(40,190,163,0.2);
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--mint-glow);
+    border-radius: 50%;
+    margin-right: 8px;
+    box-shadow: 0 0 8px var(--mint-glow);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.9); opacity: 0.6; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(0.9); opacity: 0.6; }
+}
+
+/* Irfan Photo Foreground element styling with critical glow outline */
+.dev-photo {
+    position: absolute;
+    height: 480px;
+    right: 40px;
+    bottom: 30px;
+    z-index: 3;
+    /* Yeh hai asal trick: Photo ke gird neon outline shadow filter! */
+    filter: drop-shadow(0 0 25px rgba(40, 190, 163, 0.65));
+}
+
+/* Base Stand / Marble Pedestal layout */
+/* Pure CSS Futuristic Plinth */
+.plinth-container {
+    position: absolute;
+    bottom: 10px;
+    right: 80px;
+    z-index: 4;
+}
+
+.cyber-plinth {
+    width: 200px;
+    height: 25px;
+    background: linear-gradient(180deg, #1e3d38 0%, #0d211e 100%);
+    border: 1px solid var(--mint-glow);
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(40, 190, 163, 0.5), inset 0 0 10px rgba(40, 190, 163, 0.3);
+    transform: perspective(500px) rotateX(30deg); /* 3D Tilt Effect */
+}
+
+.hologram-logos {
+    position: absolute;
+    top: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    z-index: 5;
+}
+
+.hologram-logos i {
+    font-size: 1.8rem;
+    filter: drop-shadow(0 0 10px currentColor);
+    animation: float 3s infinite ease-in-out;
+}
+
+/* Alalg logos ke delays taake aage piche float karein */
+.hologram-logos i:nth-child(1) { animation-delay: 0s; }
+.hologram-logos i:nth-child(2) { animation-delay: 0.5s; }
+.hologram-logos i:nth-child(3) { animation-delay: 1s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) translateX(-50%); }
+    50% { transform: translateY(-10px) translateX(-50%); }
+}
+/* Responsive Handling Layout tweaks */
+@media (max-width: 1024px) {
+    .hero-container { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
+    .content-left .sub-text { margin: 0 auto 2.5rem; }
+    .stack-icons { justify-content: center; display: flex; }
+    .content-right { margin-top: 3rem; height: 500px; }
+    .code-window { left: 50%; transform: translateX(-50%); width: 90%; max-width: 440px; }
+    .dev-photo { right: 50%; transform: translateX(50%); }
+    .plinth-container { right: 50%; transform: translateX(50%); }
+}
+
+/* Responsive Navbar Rules */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 20;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Mobile par burger icon dikhega */
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #09191c; /* Background panel */
+        border-bottom: 1px solid rgba(40, 190, 163, 0.2);
+        display: none; /* Default hidden */
+        flex-direction: column;
+        padding: 1.5rem 0;
+        text-align: center;
+        z-index: 15;
+    }
+
+    /* Jab JS se 'active' class add hogi tab khulega */
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        margin: 1rem 0;
+        font-size: 1.1rem;
+        display: block;
+    }
+}
+
+
+/* ==========================================
+   About Me Section Styles (Theme Matched)
+   ========================================== */
+.about-container {
+    max-width: 1400px;
+     min-height: 100vh;     
+    margin: 0 auto;
+    padding: 6rem 6%;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 5rem;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+    border-top: 1px solid rgba(40, 190, 163, 0.1);
+}
+
+.about-left h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.about-left h2 span {
+    color: var(--mint-glow);
+    text-shadow: 0 0 20px rgba(40, 190, 163, 0.3);
+}
+
+.about-left p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+/* Dynamic Animated Circle Border Container */
+.about-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar-glowing-frame {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(40, 190, 163, 0.2);
+}
+
+/* Running gradient color effect for border */
+.avatar-glowing-frame::before {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: conic-gradient(var(--mint-glow), var(--bg-dark), var(--mint-glow), var(--bg-dark));
+    animation: spinBorder 4s linear infinite;
+    z-index: 1;
+}
+
+/* Solid cutout back mask inside frame */
+.avatar-glowing-frame::after {
+    content: '';
+    position: absolute;
+    inset: 4px; /* Border thickness */
+    background: #09191c;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.avatar-glowing-frame img {
+    width: calc(100% - 16px);
+    height: calc(100% - 16px);
+    object-fit: cover;
+    border-radius: 50%;
+    z-index: 3;
+    position: relative;
+}
+
+@keyframes spinBorder {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* About Section Responsive Rules */
+@media (max-width: 968px) {
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+        padding: 4rem 6%;
+    }
+    .about-left h2 {
+        font-size: 2.2rem;
+    }
+    .about-right {
+        order: -1; /* Mobile par image pehle show hogi text se upar */
+    }
+    .avatar-glowing-frame {
+        width: 260px;
+        height: 260px;
+    }
+}
+
+
+
+
+/* ==========================================================
+   DYNAMIC FULL-SCREEN SECTION CSS (Bina Design Chere Code)
+   ========================================================== */
+.dynamic-screen-section {
+    width: 100%;
+    min-height: 100vh;        
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 4rem 6%;
+    border-bottom: 1px solid rgba(40, 190, 163, 0.05); 
+}
+
+/* Local Section Glow Blobs */
+.section-glow-blob {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(40,190,163,0.12) 0%, rgba(0,0,0,0) 70%);
+    border-radius: 50%;
+    z-index: 1;
+    filter: blur(60px);
+    pointer-events: none;
+}
+.blob-top-right { top: -10%; right: -5%; }
+.blob-bottom-left { bottom: -10%; left: -5%; }
+
+/* Grid Layout structure */
+.section-inner-container {
+    max-width: 1400px;      
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 4.5rem;
+    align-items: center;
+    position: relative;
+    z-index: 3;
+}
+
+/* Typography & Content Layout */
+.section-status-badge {
+    display: inline-block;
+    background: rgba(40, 190, 163, 0.1);
+    border: 1px solid var(--mint-glow, #28bea3);
+    color: var(--mint-glow, #28bea3);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+}
+
+.section-heading {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 3.2rem;
+    line-height: 1.15;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    letter-spacing: -1px;
+}
+
+.section-paragraph {
+    color: var(--text-muted, #a0aec0);
+    font-size: 1.15rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    max-width: 580px;
+}
+
+/* Button Layout Rules */
+.section-cta-buttons .sec-btn {
+    text-decoration: none;
+    padding: 0.9rem 2.2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    display: inline-block;
+    margin-right: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.btn-primary-fill { 
+    background-color: var(--mint-glow, #28bea3); 
+    color: #051417; 
+}
+.btn-primary-fill:hover { 
+    background-color: #209e86; 
+    box-shadow: 0 0 20px rgba(40,190,163,0.4); 
+    transform: translateY(-2px);
+}
+
+.btn-secondary-outline { 
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    color: #ffffff; 
+    background: transparent; 
+}
+.btn-secondary-outline:hover { 
+    background: rgba(255, 255, 255, 0.05); 
+    border-color: #ffffff;
+}
+
+/* Code Window Container Styling */
+.section-code-window {
+    background: #09191c;      
+    border: 1px solid rgba(40, 190, 163, 0.2);
+    border-radius: 12px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+    overflow: hidden;
+    width: 100%;
+}
+
+.section-window-header {
+    background: #051012;
+    padding: 0.8rem 1.2rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.win-dot { width: 11px; height: 11px; border-radius: 50%; margin-right: 6px; }
+.dot-red { background: #ff5f56; }
+.dot-yellow { background: #ffbd2e; }
+.dot-green { background: #27c93f; }
+
+.section-window-title {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.85rem;
+    color: #4a6568;
+}
+
+.section-code-content {
+    padding: 1.8rem;
+    font-family: monospace;
+    font-size: 0.9rem;
+    line-height: 1.65;
+}
+
+/* Responsive Logic for Reusable Sections*/
+@media (max-width: 1024px) {
+    .dynamic-screen-section {
+        min-height: auto;       
+        padding: 6rem 6%;
+    }
+    .section-inner-container {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+        text-align: center;
+    }
+    .section-heading { font-size: 2.5rem; }
+    .section-paragraph { margin-left: auto; margin-right: auto; }
+    .section-window-header { justify-content: flex-start; }
+    .section-window-title { margin-left: 1.5rem; margin-right: 0; }
+    .section-cta-buttons .sec-btn { margin: 0.5rem; }
+}
+
+
+/* ==========================================================
+   PROJECTS SECTION STYLES (Glow-Border & Frosted Blurry Cards)
+   ========================================================== */
+.projects-section-wrapper {
+    width: 100%;
+    position: relative;
+    z-index: 5;
+    padding: 8rem 6%;
+    border-top: 1px solid rgba(40, 190, 163, 0.1);
+}
+
+.projects-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Section Header Styling */
+.projects-header {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.projects-header h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: -1px;
+}
+
+.projects-header h2 span {
+    color: var(--mint-glow, #28bea3);
+    text-shadow: 0 0 20px rgba(40, 190, 163, 0.3);
+}
+
+.projects-header p {
+    color: var(--text-muted, #a0aec0);
+    font-size: 1.15rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* 3-Column Desktop Grid Layout */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+}
+
+/* Clickable Frosted Blurry Card Base Structure */
+.project-card {
+    text-decoration: none;         /* Poora card link hai to link underline khatam */
+    color: #ffffff;
+    background: rgba(9, 25, 28, 0.45); /* Alpha transparency for blur mesh */
+    border: 1px solid rgba(40, 190, 163, 0.15); /* Sleek standard border */
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                box-shadow 0.4s ease, 
+                border-color 0.4s ease;
+                
+    /* CRITICAL EFFECT: Pure Glassmorphism Blurry Backdrop */
+    backdrop-filter: blur(14px) saturate(180%);
+    -webkit-backdrop-filter: blur(14px) saturate(180%);
+    z-index: 2;
+}
+
+/* Image Wrapper Box */
+.card-image-box {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+    background: #051012;
+}
+
+.card-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    border: 10px solid rgba(40, 190, 163, 0.25);
+}
+
+/* Card Content Area styling */
+.card-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-tag {
+    font-size: 0.75rem;
+    color: var(--mint-glow, #28bea3);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.8rem;
+}
+
+.card-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.card-content p {
+    color: var(--text-muted, #a0aec0);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* ==========================================================
+   DYNAMIC INTERACTIVE HOVER ANIMATIONS
+   ========================================================== */
+.project-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--mint-glow, #28bea3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 
+                0 0 30px rgba(40, 190, 163, 0.25);
+}
+
+.project-card:hover .card-image-box img {
+    transform: scale(1.08); /* Smooth zooming image zoom */
+}
+
+.project-card:hover .card-content h3 {
+    color: var(--mint-glow, #28bea3); /* Text shifts to neon on hover */
+}
+
+/* ==========================================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   ========================================================== */
+@media (max-width: 1100px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 Columns for Medium Tablets/Screens */
+        gap: 2rem;
+    }
+    .projects-header h2 { font-size: 2.8rem; }
+}
+
+@media (max-width: 768px) {
+    .projects-section-wrapper {
+        padding: 5rem 6%;
+    }
+    .projects-grid {
+        grid-template-columns: 1fr; /* 1 Column full width for Mobiles */
+        gap: 2rem;
+    }
+    .projects-header h2 { font-size: 2.4rem; }
+    .card-image-box { height: 200px; }
+}
+
+
+
+
+/* ==========================================================
+   CONTACT SECTION & CUSTOM POPUP CSS
+   ========================================================== */
+.contact-section-wrapper {
+    width: 100%;
+    position: relative;
+    z-index: 5;
+    padding: 8rem 6%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid rgba(40, 190, 163, 0.1);
+}
+
+.contact-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 6rem;
+    align-items: center;
+}
+
+.contact-animated-heading {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 4rem;
+    line-height: 1.1;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.contact-animated-heading span {
+    color: var(--mint-glow, #28bea3);
+    background: linear-gradient(to right, #28bea3, #50fa7b, #28bea3);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textShineGlow 4s linear infinite;
+    text-shadow: 0 0 30px rgba(40, 190, 163, 0.2);
+}
+
+@keyframes textShineGlow {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+}
+
+.contact-subtext {
+    color: var(--text-muted, #a0aec0);
+    font-size: 1.2rem;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+    max-width: 500px;
+}
+
+.contact-form-card {
+    background: rgba(9, 25, 28, 0.45);
+    border: 1px solid rgba(40, 190, 163, 0.15);
+    border-radius: 16px;
+    padding: 3rem;
+    backdrop-filter: blur(14px) saturate(180%);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.form-group input, 
+.form-group textarea {
+    background: rgba(5, 16, 18, 0.6);
+    border: 1px solid rgba(40, 190, 163, 0.2);
+    border-radius: 8px;
+    padding: 1rem;
+    color: #ffffff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--mint-glow, #28bea3);
+    box-shadow: 0 0 15px rgba(40, 190, 163, 0.2);
+}
+
+.submit-btn-direct {
+    width: 100%;
+    background-color: var(--mint-glow, #28bea3);
+    color: #051417;
+    border: none;
+    padding: 1.1rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn-direct:hover {
+    background-color: #209e86;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(40, 190, 163, 0.3);
+}
+
+/* ----------------------------------------------------------
+   NEON GLASS POPUP MODAL STYLES (Hidden by Default)
+   ---------------------------------------------------------- */
+.success-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(5, 16, 18, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.success-popup-overlay.show-popup {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.success-modal-card {
+    background: #09191c;
+    border: 2px solid var(--mint-glow, #28bea3);
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    max-width: 450px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(40, 190, 163, 0.2);
+    transform: scale(0.7);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.success-popup-overlay.show-popup .success-modal-card {
+    transform: scale(1);
+}
+
+.success-icon-circle {
+    width: 70px;
+    height: 70px;
+    background: rgba(40, 190, 163, 0.1);
+    border: 2px solid var(--mint-glow, #28bea3);
+    color: var(--mint-glow, #28bea3);
+    font-size: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 0 20px rgba(40, 190, 163, 0.3);
+}
+
+.success-modal-card h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.success-modal-card p {
+    color: var(--text-muted, #a0aec0);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.close-popup-btn {
+    background: transparent;
+    border: 1px solid var(--mint-glow, #28bea3);
+    color: var(--mint-glow, #28bea3);
+    padding: 0.8rem 2.5rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close-popup-btn:hover {
+    background: var(--mint-glow, #28bea3);
+    color: #051417;
+    box-shadow: 0 0 15px rgba(40, 190, 163, 0.3);
+}
+
+/* Responsive Grid rules */
+@media (max-width: 1024px) {
+    .contact-container { grid-template-columns: 1fr; gap: 4rem; }
+    .contact-left { text-align: center; }
+    .contact-form-card { padding: 2rem; }
+}
+
+
+
+
+
+
+/* ==========================================================
+   ANIMATED FOOTER STYLES (Theme-Matched Glassmorphism)
+   ========================================================== */
+.portfolio-footer {
+    width: 100%;
+    background: #061113; /* Aapki dark teal theme se match karta hua deeper shade */
+    position: relative;
+    z-index: 5;
+    padding-top: 5rem;
+    overflow: hidden;
+}
+
+/* Top Border Neon Animated Glow Line */
+.footer-glow-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--mint-glow, #28bea3), transparent);
+    background-size: 200% auto;
+    animation: borderGlowFlow 4s linear infinite;
+    box-shadow: 0 0 15px rgba(40, 190, 163, 0.5);
+}
+
+@keyframes borderGlowFlow {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 6%;
+    width: 100%;
+}
+
+/* 3-Column Main Grid Layout */
+.footer-main-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr 1fr;
+    gap: 4rem;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Left Column - Brand Info */
+.footer-brand .footer-logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 1.2rem;
+    letter-spacing: -0.5px;
+}
+
+.footer-brand .footer-logo span {
+    color: var(--mint-glow, #28bea3);
+}
+
+.footer-brand .footer-bio {
+    color: var(--text-muted, #a0aec0);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 400px;
+}
+
+/* Middle Column - Quick Links Header */
+.footer-links-block h3,
+.footer-socials-block h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
+}
+
+.footer-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-menu li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-menu li a {
+    color: var(--text-muted, #a0aec0);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+/* Smooth Link Hover Effect */
+.footer-menu li a:hover {
+    color: var(--mint-glow, #28bea3);
+    transform: translateX(5px);
+}
+
+/* Right Column - Social Icons Wrapper */
+.social-subtext {
+    color: var(--text-muted, #a0aec0);
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+}
+
+.footer-social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Social Icons Base Style with Blur Backdrops */
+.social-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Custom Individual Hover Accent Colors */
+.icon-facebook:hover {
+    background: rgba(24, 119, 242, 0.15);
+    border-color: #1877f2;
+    color: #1877f2;
+    box-shadow: 0 0 15px rgba(24, 119, 242, 0.4);
+    transform: translateY(-5px);
+}
+
+.icon-instagram:hover {
+    background: rgba(225, 48, 108, 0.15);
+    border-color: #e1306c;
+    color: #e1306c;
+    box-shadow: 0 0 15px rgba(225, 48, 108, 0.4);
+    transform: translateY(-5px);
+}
+
+.icon-youtube:hover {
+    background: rgba(255, 0, 0, 0.15);
+    border-color: #ff0000;
+    color: #ff0000;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+    transform: translateY(-5px);
+}
+
+/* Bottom Copyright Bar Layout */
+.footer-bottom-bar {
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgba(160, 174, 192, 0.6);
+    font-size: 0.9rem;
+}
+
+.footer-crafted span {
+    color: #ff5f56; /* Soft red for heart */
+    display: inline-block;
+    animation: heartPulse 1.5s infinite;
+}
+
+@keyframes heartPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+/* ==========================================================
+   RESPONSIVE LAYOUT RULES (Mobile & Tablet Setup)
+   ========================================================== */
+@media (max-width: 968px) {
+    .footer-main-grid {
+        grid-template-columns: 1fr; /* Stack columns vertically */
+        gap: 2.5rem;
+        text-align: center;
+    }
+    .footer-brand .footer-bio {
+        margin: 0 auto;
+    }
+    .footer-social-icons {
+        justify-content: center;
+    }
+    .footer-bottom-bar {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+}
+</style>
+</head>
+<body>
+
+    <div id="particles-js"></div>
+
+   <header class="navbar">
+    <div class="logo">Maryam <span>Sher</span></div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
+        <i class="fas fa-bars"></i>
+    </button>
+    <nav class="nav-links" id="navLinks">
+        <a href="#">Home</a>
+        <a href="#">Projects</a>
+        <a href="#" class="active">My Stack</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+    <main class="hero-container">
+        
+        <div class="content-left">
+            <h1 class="main-heading">CRAFTING <span>SCALABLE</span> CODE. DESIGNING SEAMLESS EXPERIENCES.</h1>
+            <p class="sub-text">Full-Stack Developer Specializing in Laravel, custom WordPress, and API Architectures. Let's Build Something Amazing.</p>
+            
+            <div class="cta-group">
+                <a href="#" class="btn-fill">View Projects</a>
+                <a href="#" class="btn-outline">Hire Me</a>
+            </div>
+
+            <div class="my-stack-section">
+                <h3>My Stack</h3>
+                <div class="stack-icons">
+                    <i class="fab fa-laravel text-laravel" title="Laravel"></i>
+                    <i class="fab fa-php text-php" title="PHP"></i>
+                    <i class="fab fa-wordpress text-wp" title="WordPress"></i>
+                    <i class="fab fa-vuejs text-vue" title="Vue.js"></i>
+                    <i class="fas fa-database text-db" title="MySQL"></i>
+                    <i class="fab fa-docker text-docker" title="Docker"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-right">
+            
+            <div class="code-window">
+                <div class="window-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="title">// Maryam Sher Portfolio - core.php</span>
+                </div>
+                <div class="code-body">
+<pre><code><span class="p-keyword">&lt;?php</span>
+<span class="p-tag">use</span> portfolio.sociallaravel';
+
+<span class="p-keyword">class</span> <span class="p-class">Code Canvas</span> :onnct {
+    <span class="p-keyword">public function</span> <span class="p-func">mainStage</span>() {
+        <span class="p-var">$conuse-out</span> => showlotthome();
+        <span class="p-var">$convse-out</span> => appToach('seton');
+    }
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="live-badge">
+                <span class="pulse-dot"></span> Live Deployment
+            </div>
+
+            
+
+           <div class="plinth-container">
+    <div class="cyber-plinth"></div>
+    <div class="hologram-logos">
+        <i class="fab fa-laravel text-laravel"></i>
+        <i class="fab fa-vuejs text-vue"></i>
+        <i class="fab fa-wordpress text-wp"></i>
+    </div>
+</div>
+
+        </div>
+    </main>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br><br>
+<br><br>
+    <section class="about-container">
+    <div class="about-left">
+        <h2>About <span>Me</span></h2>
+        <p>I build custom software solutions that bridge the gap between complex logic and absolute pixel-perfect frontends. With a solid foundation in core PHP and modern frameworks like Laravel, I build scalable backends, design seamless API architectures, and customize advanced WordPress themes from scratch.</p>
+        <p>My workflow focuses on clean architectures, high-performance speeds, and clean security protocols. Whether it's optimization or custom web development, I structure files for heavy operations.</p>
+    </div>
+
+    <div class="about-right">
+        <div class="avatar-glowing-frame">
+            <img src="avaterbro.png" alt="Irfan Sher Profile">
+        </div>
+    </div>
+</section>
+
+
+<section class="dynamic-screen-section">
+    <div class="section-glow-blob blob-top-right"></div>
+    <div class="section-glow-blob blob-bottom-left"></div>
+
+    <div class="section-inner-container">
+        <div class="section-content-left">
+            <div class="section-status-badge">🟢 Available for Full-time Roles</div>
+            <h2 class="section-heading">CRAFTING SCALABLE CODE. DESIGNING SEAMLESS EXPERIENCES.</h2>
+            <p class="section-paragraph">I am Irfan Sher, a Full-Stack Developer specializing in Laravel, custom WordPress, and high-performance API architectures.</p>
+            <div class="section-cta-buttons">
+                <a href="#" class="sec-btn btn-primary-fill">View Projects</a>
+                <a href="#" class="sec-btn btn-secondary-outline">Hire Me</a>
+            </div>
+        </div>
+
+        <div class="section-visual-right">
+            <div class="section-code-window">
+                <div class="section-window-header">
+                    <span class="win-dot dot-red"></span>
+                    <span class="win-dot dot-yellow"></span>
+                    <span class="win-dot dot-green"></span>
+                    <span class="section-window-title">core.php</span>
+                </div>
+                <div class="section-code-content">
+                    <pre><code><span class="keyword">&lt;?php</span>
+<span class="comment">// Irfan Sher Portfolio</span>
+<span class="keyword">class</span> <span class="class-name">CodeCanvas</span> {
+    <span class="keyword">public function</span> <span class="function-name">mainStage</span>() {
+        <span class="variable">$developer</span> = <span class="string">'Irfan Sher'</span>;
+        <span class="variable">$skills</span> = [<span class="string">'Laravel'</span>, <span class="string">'WordPress'</span>];
+        <span class="keyword">return</span> true;
+    }
+}</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<section class="projects-section-wrapper">
+    <div class="projects-container">
+        
+        <div class="projects-header">
+            <h2>Featured <span>Projects</span></h2>
+            <p>A showcase of high-performance web applications, custom architectures, and scalable solutions.</p>
+        </div>
+
+        <div class="projects-grid">
+            
+            <a href="#" class="project-card">
+                <div class="card-image-box">
+                    <img src="avaterbro.png" alt="E-Commerce API Architecture">
+                </div>
+                <div class="card-content">
+                    <span class="card-tag">Laravel / REST API</span>
+                    <h3>E-Commerce Backend</h3>
+                    <p>High-performance headless API architecture with advanced caching and secure gateway integration.</p>
+                </div>
+            </a>
+
+            <a href="#" class="project-card">
+                <div class="card-image-box">
+                    <img src="project2.jpg" alt="Custom WordPress Portal">
+                </div>
+                <div class="card-content">
+                    <span class="card-tag">WordPress / PHP</span>
+                    <h3>Custom LMS Plugin</h3>
+                    <p>A fully tailor-made Learning Management System plugin written from scratch using core PHP Hooks.</p>
+                </div>
+            </a>
+
+            <a href="" class="project-card">
+                <div class="card-image-box">
+                    <img src="project3.jpg" alt="SaaS Dashboard Realtime">
+                </div>
+                <div class="card-content">
+                    <span class="card-tag">Vue.js / Tailwind</span>
+                    <h3>Realtime Analytics Dashboard</h3>
+                    <p>Interactive client-facing analytics hub utilizing reactive components and optimized web sockets.</p>
+                </div>
+            </a>
+
+            <a href="#" class="project-card">
+                <div class="card-image-box">
+                    <img src="project4.jpg" alt="Database Architecture Optimization">
+                </div>
+                <div class="card-content">
+                    <span class="card-tag">MySQL / Docker</span>
+                    <h3>Database Clustering</h3>
+                    <p>Replication and query optimization handling heavy operations and continuous automated scaling.</p>
+                </div>
+            </a>
+
+            <a href="#" class="project-card">
+                <div class="card-image-box">
+                    <img src="#" alt="Custom ERP Software">
+                </div>
+                <div class="card-content">
+                    <span class="card-tag">Laravel Core</span>
+                    <h3>Enterprise ERP System</h3>
+                    <p>Internal business workflow automation tool including inventories, invoicing, and user permissions.</p>
+                </div>
+            </a>
+
+            <a href="#" class="project-card">
+                <div class="card-image-box">
+                    <img src="project6.jpg" alt="API Gateway Secure Connection">
+                </div>
+                <div class="card-content">
+                    <span class="card-tag">Custom Middleware</span>
+                    <h3>OAuth2 Authentication Server</h3>
+                    <p>Secured identity authorization provider service for external app connection bridges.</p>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+
+<section class="contact-section-wrapper">
+    <div class="contact-container">
+        
+        <div class="contact-left">
+            <h2 class="contact-animated-heading">Let's Build <br>Something <span>Epic!</span></h2>
+            <p class="contact-subtext">Have a project in mind or looking for a full-time developer? Drop your details here. No redirects, no hassle.</p>
+            
+            <div class="contact-quick-info">
+                <div class="info-item">🟢 Instant Response</div>
+                <div class="info-item">📍 Karachi, Pakistan</div>
+            </div>
+        </div>
+
+        <div class="contact-right">
+            <div class="contact-form-card">
+                <form id="portfolioContactForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+                    <div class="form-group">
+                        <label for="userName">Your Name</label>
+                        <input type="text" name="name" id="userName" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userEmail">Email Address</label>
+                        <input type="email" name="email" id="userEmail" placeholder="name@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userPhone">WhatsApp Number</label>
+                        <input type="tel" name="phone" id="userPhone" placeholder="e.g., 03001234567" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userMessage">Project Details / Message</label>
+                        <textarea name="message" id="userMessage" rows="4" placeholder="Briefly describe your project..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn-direct" id="submitBtn">
+                        Submit Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<footer class="portfolio-footer">
+    <div class="footer-glow-line"></div>
+
+    <div class="footer-container">
+        <div class="footer-main-grid">
+            
+            <div class="footer-brand">
+                <a href="#" class="footer-logo">Maryam <span>Sher</span></a>
+                <p class="footer-bio">Full-Stack Developer crafting high-performance API architectures, custom Laravel applications, and advanced WordPress solutions.</p>
+            </div>
+
+            <div class="footer-links-block">
+                <h3>Quick Links</h3>
+                <ul class="footer-menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Me</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-socials-block">
+                <h3>Connect With Me</h3>
+                <p class="social-subtext">Follow me on social platforms or check out my latest updates.</p>
+                <div class="footer-social-icons">
+                    <a href="https://facebook.com/YOUR_PROFILE" target="_blank" class="social-icon icon-facebook" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://instagram.com/YOUR_PROFILE" target="_blank" class="social-icon icon-instagram" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://youtube.com/YOUR_CHANNEL" target="_blank" class="social-icon icon-youtube" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom-bar">
+            <p>&copy; 2026 Maryam Sher. All Rights Reserved.</p>
+            <p class="footer-crafted">Designed & Developed with <span>❤️</span></p>
+        </div>
+    </div>
+</footer>
+
+<div class="success-popup-overlay" id="successModal">
+    <div class="success-modal-card">
+        <div class="success-icon-circle">✓</div>
+        <h3>Message Received!</h3>
+        <p>Thanks for connecting, Maryam Sher this side. I have received your data safely and will get back to you via WhatsApp/Email very soon!</p>
+        <button class="close-popup-btn" onclick="closeModal()">Great, Thanks!</button>
+    </div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS('particles-js', {
+            "particles": {
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#28bea3" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.2 },
+                "size": { "value": 3 },
+                "line_linked": { "enable": true, "distance": 150, "color": "#28bea3", "opacity": 0.15, "width": 1 },
+                "move": { "enable": true, "speed": 2 }
+            },
+            "interactivity": {
+                "events": { "onhover": { "enable": true, "mode": "grab" } }
+            },
+            "retina_detect": true
+        });
+
+
+
+        const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    // Toggle burger icon to X icon (Optional but professional)
+    const icon = menuToggle.querySelector('i');
+    icon.classList.toggle('fa-bars');
+    icon.classList.toggle('fa-times');
+});
+
+
+
+document.getElementById('portfolioContactForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Browser ka default reload aur redirect rokne ke liye
+
+    const form = this;
+    const submitBtn = document.getElementById('submitBtn');
+    const phoneInput = document.getElementById('userPhone').value.trim();
+
+    // 1. Phone Number Validation (Sirf numbers, minimum 10 digits)
+    const phonePattern = /^[0-9]{10,15}$/;
+    const cleanPhone = phoneInput.replace('+', '');
+
+    if (!phonePattern.test(cleanPhone)) {
+        alert("Please enter your valid number to connect with us");
+        return;
+    }
+
+    // Button text updating to loading state
+    submitBtn.innerText = "Sending Message...";
+    submitBtn.style.opacity = "0.7";
+    submitBtn.disabled = true;
+
+    // 2. Background Form submission using AJAX (Fetch API)
+    fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: {
+            'Accept': 'application/json'
+        }
+    }).then(response => {
+        if (response.ok) {
+            // Data successfully received: Trigger Beautiful Popup Modal
+            document.getElementById('successModal').classList.add('show-popup');
+            form.reset(); // Reset form fields
+        } else {
+            alert("Oops! There was a problem submitting your form. Please try again.");
+        }
+    }).catch(error => {
+        alert("Network error! Please check your connection and try again.");
+    }).finally(() => {
+        // Resetting button state back to original
+        submitBtn.innerText = "Submit Message";
+        submitBtn.style.opacity = "1";
+        submitBtn.disabled = false;
+    });
+});
+
+// Function to close custom popup modal
+function closeModal() {
+    document.getElementById('successModal').classList.remove('show-popup');
+}
+    </script>
+</body>
+</html>
